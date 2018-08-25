@@ -10,10 +10,11 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var emailField: LoginTextField!
+    @IBOutlet weak var passwordField: LoginTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +22,40 @@ class LoginVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func signInBtnPressed(_ sender: Any) {
+        
+        guard let email = emailField.text else { return }
+        guard let password = passwordField.text else { return }
+        
+        AuthService.instance.loginUser(withEmail: email, andPassword: password) { (error) in
+            if error != nil {
+                debugPrint(String(describing: error?.localizedDescription))
+                AuthService.instance.registerUser(withEmail: email, andPassword: password, completion: { (error) in
+                    if error != nil {
+                        debugPrint("User NOT successfully register \(String(describing: error?.localizedDescription))")
+                    } else {
+                        print("User successfully register and loggedin")
+                        AuthService.instance.loginUser(withEmail: email, andPassword: password, completion: { (error) in
+                            if error != nil {
+                                debugPrint(String(describing: error?.localizedDescription))
+                            } else {
+                                self.dismiss(animated: true, completion: nil)
+                                print("User successfully logged in")
+                            }
+                        })
+                    }
+                })
+                
+            } else {
+                self.dismiss(animated: true, completion: nil)
+                print("User successfully logged in")
+            }
+        }
+        
+        
     }
-    */
-
+    
+    @IBAction func closeBtnPressed(_ sender: Any) {
+       dismiss(animated: true, completion: nil)
+    }
 }

@@ -11,14 +11,6 @@ import UIKit
 @IBDesignable
 class ShadowView: UIView {
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func awakeFromNib() {
         setupView()
         super.awakeFromNib()
@@ -31,7 +23,7 @@ class ShadowView: UIView {
     func setupView() {
         self.layer.shadowOpacity = 0.75
         self.layer.shadowRadius = 4
-        self.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        self.layer.shadowColor = #colorLiteral(red: 0.2038974464, green: 0.2039384246, blue: 0.2038920522, alpha: 1)
     }
     
 }
