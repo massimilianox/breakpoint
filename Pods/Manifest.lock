@@ -13,9 +13,6 @@ PODS:
     - FirebaseAnalytics (= 5.0.1)
   - Firebase/CoreOnly (5.1.0):
     - FirebaseCore (= 5.0.2)
-  - Firebase/Database (5.1.0):
-    - Firebase/CoreOnly
-    - FirebaseDatabase (= 5.0.1)
   - Firebase/Firestore (5.1.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (= 0.12.2)
@@ -29,9 +26,6 @@ PODS:
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseCore (5.0.2):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseDatabase (5.0.1):
-    - FirebaseCore (~> 5.0)
-    - leveldb-library (~> 1.18)
   - FirebaseFirestore (0.12.2):
     - FirebaseCore (~> 5.0)
     - FirebaseFirestore/abseil-cpp (= 0.12.2)
@@ -79,7 +73,6 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
-  - Firebase/Database
   - Firebase/Firestore
 
 SPEC REPOS:
@@ -89,7 +82,6 @@ SPEC REPOS:
     - FirebaseAnalytics
     - FirebaseAuth
     - FirebaseCore
-    - FirebaseDatabase
     - FirebaseFirestore
     - FirebaseInstanceID
     - GoogleToolboxForMac
@@ -108,7 +100,6 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
   FirebaseAuth: acbeef02fe7c3a26624e309849f3fe30c84115af
   FirebaseCore: b81044df1044c0857a0737c6324678b72d4f7f00
-  FirebaseDatabase: 482bad9c2abd422bb2321194fb8c937e67426a89
   FirebaseFirestore: 93b8bf70484c92c271ae93940fe1e2ca9e35f92b
   FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
@@ -121,6 +112,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
 
-PODFILE CHECKSUM: 36ad217e6c99cf368465d5a055a4110d3c9e3cf5
+PODFILE CHECKSUM: 30fd44f9d061695c27ec212295316488bae2500d
 
 COCOAPODS: 1.5.3

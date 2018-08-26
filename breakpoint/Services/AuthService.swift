@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 
+
 class AuthService {
     
     static var instance = AuthService()
