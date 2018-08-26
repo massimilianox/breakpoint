@@ -20,6 +20,7 @@
 		3B60761F21316E60002F134A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60761E21316E60002F134A /* ShadowView.swift */; };
 		3B607621213177BF002F134A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B607620213177BF002F134A /* AuthService.swift */; };
 		3B607623213186E5002F134A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B607622213186E5002F134A /* Assets.xcassets */; };
+		3BEEC61C2132CC6600A3AF16 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEEC61B2132CC6600A3AF16 /* MeVC.swift */; };
 		996096899FD990DA769BCEB9 /* Pods_breakpoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C7A623DEEC927FC39C423D /* Pods_breakpoint.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		3B60761E21316E60002F134A /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		3B607620213177BF002F134A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3B607622213186E5002F134A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BEEC61B2132CC6600A3AF16 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		62C7A623DEEC927FC39C423D /* Pods_breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF80B60880A9AD0F594D6EE6 /* Pods-breakpoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.release.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 				3B4EF3C121308F9F00702901 /* FeedVC.swift */,
 				3B60761821316778002F134A /* AuthVC.swift */,
 				3B60761A213167E4002F134A /* LoginVC.swift */,
+				3BEEC61B2132CC6600A3AF16 /* MeVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BEEC61C2132CC6600A3AF16 /* MeVC.swift in Sources */,
 				3B60761921316778002F134A /* AuthVC.swift in Sources */,
 				3B4EF3C421308F9F00702901 /* GroupsVC.swift in Sources */,
 				3B60761B213167E4002F134A /* LoginVC.swift in Sources */,
