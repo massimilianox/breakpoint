@@ -14,12 +14,22 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var userEmailLbl: UILabel!
     @IBOutlet weak var questionMarkImage: UIImageView!
     
+    private var questionMarkShowing = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         questionMarkImage.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        if selected && !questionMarkShowing {
+                questionMarkImage.isHidden = false
+                questionMarkShowing = true
+            } else {
+                questionMarkImage.isHidden = true
+                questionMarkShowing = false
+            }
         
     }
     
