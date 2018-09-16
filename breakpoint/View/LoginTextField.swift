@@ -35,9 +35,15 @@ class LoginTextField: UITextField {
     }
     
     func setupView() {
-        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.7523762584, green: 0.7523762584, blue: 0.7523762584, alpha: 1)])
+        
         self.layer.borderColor = #colorLiteral(red: 0.7523762584, green: 0.7523762584, blue: 0.7523762584, alpha: 1)
         self.layer.borderWidth = 0.5
         self.layer.cornerRadius = 10
+        
+        if self.placeholder == nil {
+            return
+        }
+        
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.7523762584, green: 0.7523762584, blue: 0.7523762584, alpha: 1)])
     }
 }
