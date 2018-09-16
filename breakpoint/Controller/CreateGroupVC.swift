@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateGroupVC: UIViewController {
+class CreateGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var titleTextField: LoginTextField!
@@ -17,12 +17,13 @@ class CreateGroupVC: UIViewController {
     @IBOutlet weak var addEmailsLbl: UILabel!
     @IBOutlet weak var emailListTableView: UITableView!
     
-    
+    var emailArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        emailListTableView.delegate = self
+        emailListTableView.dataSource = self
+        addEmailsTextField.addTarget(self, action: #selector(emailSerachFieldChange), for: .editingChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +31,37 @@ class CreateGroupVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return emailArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell {
+            let image = UIImage(named: "defaultProfileImage")
+            let email = emailArray[indexPath.row]
+            cell.configureCell(userImage: image!, userEmail: email, isSelected: true)
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+    
+    @objc func emailSerachFieldChange() {
+        if addEmailsTextField.text != "" && (addEmailsTextField.text?.count)! >= 3 {
+            DataService.instance.getEmails(forQuerySearch: addEmailsTextField.text) { (arrayString) in
+                self.emailArray = arrayString
+                self.emailListTableView.reloadData()
+            }
+        } else {
+            self.emailArray = []
+            self.emailListTableView.reloadData()
+        }
+    }
+    
+    
     @IBAction func closeBtnPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addBtnPressed(_ sender: Any) {

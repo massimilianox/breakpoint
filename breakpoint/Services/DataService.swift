@@ -9,33 +9,14 @@
 import Foundation
 import Firebase
 
-// let DB_BASE = Database.database().reference()
-
 let DB_BASE = Firestore.firestore()
 
 class DataService {
     
     static let instance = DataService()
-    
     private var _REF_USERS = DB_BASE.collection("users")
     private var _REF_GROUPS = DB_BASE.collection("groups")
     private var _REF_FEED = DB_BASE.collection("feed")
-    
-//    var REF_BASE: DatabaseReference {
-//        return _REF_BASE
-//    }
-    
-//    var REF_USERS: DatabaseReference {
-//        return _REF_USERS
-//    }
-    
-//    var REF_GROUPS: DatabaseReference {
-//        return _REF_GROUPS
-//    }
-//
-//    var REF_FEED: DatabaseReference {
-//        return _REF_FEED
-//    }
     
     func createDBUser(uid: String, userData: Dictionary<String, Any>, completion: @escaping (_ error: Error?) -> ()) {
         
@@ -92,9 +73,8 @@ class DataService {
     }
     
     func getUserName(uid: String, handler: @escaping (_ userName: String) -> ()) {
-        
         _REF_USERS.document(uid).getDocument() { (userData, error) in
-            
+
             if let user = userData, (userData?.exists)! {
                 handler(user["email"] as! String)
             } else {
@@ -105,6 +85,41 @@ class DataService {
                 print("error retriving user data \(String(describing: error))")
             }
             
+        }
+    }
+    
+    func getEmails(forQuerySearch query: String?, handler: @escaping (_ emailArray: [String]) -> ()) {
+       
+        _REF_USERS.getDocuments() { (usersData, error) in
+            
+            if error != nil {
+                print("something went terribly wrong")
+            }
+            
+            var emailArray = [String]()
+            guard let userSnapshot = usersData else { return }
+            
+            for user in userSnapshot.documents {
+                let email = user["email"] as! String
+                if email.contains(query!) && email != Auth.auth().currentUser?.email {
+                    emailArray.append(user["email"] as! String)
+                }
+            }
+            
+//            for user in userSnapshot.documents {
+//                let email = user["email"] as! String
+//                if query != nil {
+//                    if email.contains(query!) && email != Auth.auth().currentUser?.email {
+//                        emailArray.append(user["email"] as! String)
+//                    }
+//                } else {
+//                    if email != Auth.auth().currentUser?.email {
+//                        emailArray.append(user["email"] as! String)
+//                    }
+//                }
+//            }
+            
+            handler(emailArray)
         }
     }
     
