@@ -17,10 +17,8 @@ class DataService {
     
     static let instance = DataService()
     
-    // private var _REF_BASE = DB_BASE
     private var _REF_USERS = DB_BASE.collection("users")
-//    private var _REF_USERS = DB_BASE.child("users")
-//    private var _REF_GROUPS = DB_BASE.child("groups")
+    private var _REF_GROUPS = DB_BASE.collection("groups")
     private var _REF_FEED = DB_BASE.collection("feed")
     
 //    var REF_BASE: DatabaseReference {
@@ -50,16 +48,6 @@ class DataService {
                 completion(nil)
             }
         }
-        
-//        _REF_USERS.child(uid).updateChildValues(userData) { (error, ref) in
-//            if error != nil {
-//                debugPrint("updateChildValues Failed: \(String(describing: error?.localizedDescription))")
-//                completion(error)
-//            } else {
-//                print("user collection created or updated")
-//                completion(nil)
-//            }
-//        }
     }
     
     func postMessage(message: String, withGroupKey groupKey: String?, completion: @escaping (_ error: Error?) -> ()) {
@@ -81,6 +69,42 @@ class DataService {
                     completion(nil)
                 }
             }
+        }
+    }
+    
+    func getAllFeedMessages(handler: @escaping (_ messages: [Message]) -> ()) {
+        print("function called!");
+        
+        _REF_FEED.addSnapshotListener(includeMetadataChanges: false, listener: { (messagesData, error) in
+            var messageArray = [Message]()
+            guard let feedMessageSnapshot = messagesData else { return }
+            
+            for aMessage in feedMessageSnapshot.documents {
+                let content = aMessage["content"] as! String
+                let senderId = aMessage["senderId"] as! String
+                let messagge = Message(content: content, senderId: senderId)
+                messageArray.append(messagge)
+            }
+            
+            handler(messageArray);
+            
+        })
+    }
+    
+    func getUserName(uid: String, handler: @escaping (_ userName: String) -> ()) {
+        
+        _REF_USERS.document(uid).getDocument() { (userData, error) in
+            
+            if let user = userData, (userData?.exists)! {
+                handler(user["email"] as! String)
+            } else {
+                print("something went terribly wrong")
+            }
+            
+            if error != nil {
+                print("error retriving user data \(String(describing: error))")
+            }
+            
         }
     }
     
