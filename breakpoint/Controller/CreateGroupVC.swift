@@ -18,6 +18,7 @@ class CreateGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var emailListTableView: UITableView!
     
     var emailArray = [String]()
+    var choosenUsersArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +40,29 @@ class CreateGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell {
             let image = UIImage(named: "defaultProfileImage")
             let email = emailArray[indexPath.row]
-            cell.configureCell(userImage: image!, userEmail: email, isSelected: true)
+            let selected = choosenUsersArray.contains(email)
+            cell.configureCell(userImage: image!, userEmail: email, isSelected: selected)
             return cell
         }
-        
+
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? UserCell {
+            if !choosenUsersArray.contains(cell.userEmailLbl.text!) {
+                choosenUsersArray.append(cell.userEmailLbl.text!)
+                print("in \(cell.userEmailLbl.text!)")
+                addEmailsLbl.text = choosenUsersArray.joined(separator: ", ")
+            } else {
+                choosenUsersArray = choosenUsersArray.filter({ (elem) -> Bool in
+                    return elem != cell.userEmailLbl.text
+                })
+                print("out \(cell.userEmailLbl.text!)")
+                addEmailsLbl.text = choosenUsersArray.joined(separator: ", ")
+            }
+        }
+    }
     
     @objc func emailSerachFieldChange() {
         if addEmailsTextField.text != "" && (addEmailsTextField.text?.count)! >= 3 {

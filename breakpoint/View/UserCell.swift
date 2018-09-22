@@ -24,13 +24,14 @@ class UserCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected && !questionMarkShowing {
-                questionMarkImage.isHidden = false
-                questionMarkShowing = true
-            } else {
-                questionMarkImage.isHidden = true
-                questionMarkShowing = false
-            }
-        
+            questionMarkImage.isHidden = false
+            questionMarkShowing = true
+            print("in \(self.userEmailLbl.text!)")
+        } else {
+            questionMarkImage.isHidden = true
+            questionMarkShowing = false
+            print("out \(self.userEmailLbl.text!)")
+        }
     }
     
     func configureCell(userImage: UIImage, userEmail: String, isSelected: Bool) {
@@ -38,8 +39,10 @@ class UserCell: UITableViewCell {
         self.userEmailLbl.text = userEmail
         if isSelected {
             questionMarkImage.isHidden = false
+            questionMarkShowing = true
         } else {
             questionMarkImage.isHidden = true
+            questionMarkShowing = false
         }
     }
 }

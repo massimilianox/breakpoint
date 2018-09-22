@@ -84,7 +84,6 @@ class DataService {
             if error != nil {
                 print("error retriving user data \(String(describing: error))")
             }
-            
         }
     }
     
