@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +29,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTr-fb-VX3">
-                                        <rect key="frame" x="143" y="45" width="35" height="21"/>
+                                        <rect key="frame" x="142.5" y="45" width="35" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="0Fl-jc-CP9"/>
                                             <constraint firstAttribute="height" constant="21" id="Z7Q-CD-v8D"/>
@@ -136,7 +135,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="post a message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWT-7H-WE9">
-                                        <rect key="frame" x="100" y="45" width="121" height="21"/>
+                                        <rect key="frame" x="99.5" y="45" width="121" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="GJQ-D2-uDa"/>
                                             <constraint firstAttribute="height" constant="21" id="chQ-0I-9vq"/>
@@ -146,7 +145,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMi-vI-z7d">
-                                        <rect key="frame" x="13" y="44" width="21" height="22"/>
+                                        <rect key="frame" x="13" y="44.5" width="21" height="22"/>
                                         <state key="normal" image="close"/>
                                         <connections>
                                             <action selector="closeBtnPressed:" destination="plq-1u-eFo" eventType="touchUpInside" id="TXG-GT-xmS"/>
@@ -525,7 +524,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isx-YQ-0L9">
-                                        <rect key="frame" x="13" y="44" width="22" height="22"/>
+                                        <rect key="frame" x="13" y="44.5" width="22" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="EG6-fd-TC6"/>
                                             <constraint firstAttribute="width" constant="22" id="vEp-fn-A1d"/>
@@ -702,7 +701,7 @@
             </objects>
             <point key="canvasLocation" x="1661.25" y="689.78873239436621"/>
         </scene>
-        <!--Item-->
+        <!--me-->
         <scene sceneID="z60-Kq-HT0">
             <objects>
                 <viewController id="Q0r-6d-ENc" customClass="MeVC" customModule="breakpoint" customModuleProvider="target" sceneMemberID="viewController">
@@ -803,7 +802,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pH4-Gl-Src"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="me-tabIcon" selectedImage="me-tabIcon" id="9AW-S8-hRM"/>
+                    <tabBarItem key="tabBarItem" title="me" image="me-tabIcon" selectedImage="me-tabIcon" id="9AW-S8-hRM"/>
                     <connections>
                         <outlet property="tableView" destination="6LB-Xh-sqd" id="ewk-eM-9gl"/>
                         <outlet property="userEmail" destination="6sO-Eh-5Ge" id="pVL-FC-yQB"/>

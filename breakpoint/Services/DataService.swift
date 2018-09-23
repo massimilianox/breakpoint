@@ -95,9 +95,9 @@ class DataService {
                 print("something went terribly wrong")
             }
             
-            var emailArray = [String]()
-            guard let userSnapshot = usersData else { return }
+            guard let userSnapshot = usersData, usersData != nil else { return }
             
+            var emailArray = [String]()
             for user in userSnapshot.documents {
                 let email = user["email"] as! String
                 if email.contains(query!) && email != Auth.auth().currentUser?.email {
@@ -119,6 +119,41 @@ class DataService {
 //            }
             
             handler(emailArray)
+        }
+    }
+    
+    
+    func getIds(forUserNames usernames: [String], handler: @escaping (_ uidsArray: [String]) -> ()) {
+        _REF_USERS.getDocuments { (usersData, error) in
+            if error != nil {
+                print("something went terribly wrong: \(String(describing: error))")
+            }
+            
+            guard let userSnapshot = usersData, usersData != nil else { return }
+            
+            var uidsArray = [String]()
+            for user in userSnapshot.documents {
+                let email = user["email"] as! String
+                if usernames.contains(email) {
+                    uidsArray.append(user.documentID)
+                }
+            }
+            
+            handler(uidsArray)
+        }
+    }
+    
+    func createGroup(withTitle title: String, andDescription description: String, forIds uids: [String], completion: @escaping (_ success: Bool) -> ()) {
+        _REF_GROUPS.document().setData([
+            "title": title,
+            "description": description,
+            "registeredIds": uids
+        ]) { (error) in
+            if error != nil {
+                print("something went terribly wrong \(String(describing: error))")
+            } else {
+                completion(true)
+            }
         }
     }
     
