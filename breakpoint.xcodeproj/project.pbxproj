@@ -25,6 +25,8 @@
 		3B60761F21316E60002F134A /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60761E21316E60002F134A /* ShadowView.swift */; };
 		3B607621213177BF002F134A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B607620213177BF002F134A /* AuthService.swift */; };
 		3B607623213186E5002F134A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B607622213186E5002F134A /* Assets.xcassets */; };
+		3BBA01C621580ECC0014727E /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA01C521580ECC0014727E /* GroupCell.swift */; };
+		3BBA01C8215827550014727E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA01C7215827550014727E /* Group.swift */; };
 		3BEEC61C2132CC6600A3AF16 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEEC61B2132CC6600A3AF16 /* MeVC.swift */; };
 		3BFD66CC2141BB8B00C78769 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFD66CB2141BB8B00C78769 /* UIViewExt.swift */; };
 		996096899FD990DA769BCEB9 /* Pods_breakpoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C7A623DEEC927FC39C423D /* Pods_breakpoint.framework */; };
@@ -52,6 +54,8 @@
 		3B60761E21316E60002F134A /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		3B607620213177BF002F134A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3B607622213186E5002F134A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BBA01C521580ECC0014727E /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		3BBA01C7215827550014727E /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		3BEEC61B2132CC6600A3AF16 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		3BFD66CB2141BB8B00C78769 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		62C7A623DEEC927FC39C423D /* Pods_breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				3B3248A3214AF83A006000B6 /* Message.swift */,
+				3BBA01C7215827550014727E /* Group.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 				3B60761E21316E60002F134A /* ShadowView.swift */,
 				3B3248A1214AF16F006000B6 /* FeedCell.swift */,
 				3B15486A214EB03200828E41 /* UserCell.swift */,
+				3BBA01C521580ECC0014727E /* GroupCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -307,11 +313,13 @@
 				3BFD66CC2141BB8B00C78769 /* UIViewExt.swift in Sources */,
 				3B3248A2214AF16F006000B6 /* FeedCell.swift in Sources */,
 				3BEEC61C2132CC6600A3AF16 /* MeVC.swift in Sources */,
+				3BBA01C621580ECC0014727E /* GroupCell.swift in Sources */,
 				3B60761921316778002F134A /* AuthVC.swift in Sources */,
 				3B4EF3C421308F9F00702901 /* GroupsVC.swift in Sources */,
 				3B60761B213167E4002F134A /* LoginVC.swift in Sources */,
 				3B607621213177BF002F134A /* AuthService.swift in Sources */,
 				3B4EF3C021308F9F00702901 /* AppDelegate.swift in Sources */,
+				3BBA01C8215827550014727E /* Group.swift in Sources */,
 				3B15486B214EB03200828E41 /* UserCell.swift in Sources */,
 				3B154869214E7D0800828E41 /* CreateGroupVC.swift in Sources */,
 				3B60761F21316E60002F134A /* ShadowView.swift in Sources */,

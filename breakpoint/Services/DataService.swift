@@ -157,6 +157,33 @@ class DataService {
         }
     }
     
+    func getGroups(handler: @escaping (_ groupsArray: [[String: Any]]) -> ()) {
+        _REF_GROUPS.addSnapshotListener(includeMetadataChanges: false, listener: { (groupsData, error) in
+            
+            guard let groupsSnapshot = groupsData, groupsData != nil else { return }
+            
+            var groupsArray = [[String: Any]]()
+            
+            for group in groupsSnapshot.documents {
+                
+                let registeredIds = group["registeredIds"] as! [String]
+                
+                if registeredIds.contains((Auth.auth().currentUser?.uid)!) {
+                    
+                    let groupEntry = [
+                        "title": group["title"] as! String,
+                        "description": group["description"] as! String,
+                        "registeredIds": group["registeredIds"] as! [String]
+                    ] as [String : Any]
+                    
+                    groupsArray.append(groupEntry)
+                }
+
+            }
+            
+            handler(groupsArray);
+        })
+    }
 }
 
 
