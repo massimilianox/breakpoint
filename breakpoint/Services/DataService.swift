@@ -171,9 +171,10 @@ class DataService {
                 if registeredIds.contains((Auth.auth().currentUser?.uid)!) {
                     
                     let groupEntry = [
+                        "id": group.documentID,
                         "title": group["title"] as! String,
                         "description": group["description"] as! String,
-                        "registeredIds": group["registeredIds"] as! [String]
+                        "registeredIds": registeredIds
                     ] as [String : Any]
                     
                     groupsArray.append(groupEntry)
