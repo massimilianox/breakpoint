@@ -17,6 +17,7 @@ class GroupFeedVC: UIViewController {
     @IBOutlet weak var sendBtn: UIButton!
     
     var group: [String: Any] = [:]
+    var groupMessages: [Message] = [] // TODO: display all the messages for a given group
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,7 @@ class GroupFeedVC: UIViewController {
     
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        dismissDetail(self)
     }
     
     @IBAction func sendBtnPressed(_ sender: Any) {
